@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">bELONg</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string-array name="classes_array">
+        <item>CSC 101</item>
+        <item>MAT 200</item>
+        <item>CSC 116</item>
+        <item>HHS 101</item>
+    </string-array>
+    <string-array name="class_descriptions">
+        <item>Introduction to Computer Science</item>
+        <item>College Calculus I</item>
+        <item>Introduction to Algorithms</item>
+        <item>General Wellness</item>
+    </string-array>
+</resources>
