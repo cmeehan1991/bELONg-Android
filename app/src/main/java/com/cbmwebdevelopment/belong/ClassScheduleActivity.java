@@ -1,5 +1,6 @@
 package com.cbmwebdevelopment.belong;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +25,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 
 /**
  * Created by cmeehan on 23-Sep-16.
@@ -33,6 +36,8 @@ public class ClassScheduleActivity extends AppCompatActivity implements Navigati
     private ListAdapter mListAdapter;
     private Context context = this;
     private RadioButton fallSemester;
+    private final String TAG = "Class Schedule Activity";
+    private Calendar calendar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +77,8 @@ public class ClassScheduleActivity extends AppCompatActivity implements Navigati
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Object selectedItem = listView.getItemAtPosition(position);
+                Log.i(TAG, "Selected Item");
+                Log.d(TAG, selectedItem.toString());
                 Intent intent = new Intent(context, ViewClassDetails.class);
                 intent.putExtra("COURSE_NUMBER", selectedItem.toString());
                 intent.putExtra("COURSE_NAME", "Introduction to Computer Science");
@@ -81,6 +88,13 @@ public class ClassScheduleActivity extends AppCompatActivity implements Navigati
 
     }
 
+
+    protected void addCourse(View view){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Add a Class");
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
 
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {

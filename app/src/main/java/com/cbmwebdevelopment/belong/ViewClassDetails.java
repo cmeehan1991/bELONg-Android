@@ -24,7 +24,7 @@ public class ViewClassDetails extends AppCompatActivity {
     private Intent intent;
     private ArrayList<String> homeworkList;
     private ListView homework;
-    private final String TAG = "AddHomeworkActivity";
+    private final String TAG = "View Class Details";
 
     @Override
     protected void onCreate(Bundle savedStateInstances) {
@@ -32,23 +32,16 @@ public class ViewClassDetails extends AppCompatActivity {
 
         // Receive the intent
         intent = getIntent();
-
-
+        courseName = intent.getStringExtra("COURSE_NAME");
+        courseNumber = intent.getStringExtra("COURSE_NUMBER");
+        Log.d(TAG, " onCreate Course Name: " + courseName);
+        Log.d(TAG, " onCreate Course Number: " + courseNumber);
 
         // Start the activity
         setContentView(R.layout.class_information_layout);
 
-
-
-        courseName = intent.getStringExtra("COURSE_NAME");
-        courseNumber = intent.getStringExtra("COURSE_NUMBER");
-        Log.d(TAG, "Course Name: "+courseName);
-        Log.d(TAG, "Course Number: "+courseNumber);
-
-
         // Set the title to the class code
-       setTitle(courseNumber);
-
+        setTitle(courseNumber);
 
         // Set the title to the class code
         classTextView = (TextView) findViewById(R.id.className);
@@ -67,15 +60,18 @@ public class ViewClassDetails extends AppCompatActivity {
         intent.putExtra("COURSE_NAME", courseName);
         intent.putExtra("COURSE_NUMBER", courseNumber);
         intent.putStringArrayListExtra("HOMEWORK_LIST", homeworkList);
-        startActivityForResult(intent, RESULT_OK);
+        Log.i(TAG, "addHomework COURSE_NUMBER: "+courseNumber);
+        startActivity(intent);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
-            this.courseName = data.getStringExtra("COURSE_NAME");
-            this.courseNumber = data.getStringExtra("COURSE_NUMBER");
+            courseName = data.getStringExtra("COURSE_NAME");
+            courseNumber = data.getStringExtra("COURSE_NUMBER");
+            Log.d(TAG, courseName);
+            Log.d(TAG, courseNumber);
             Toast.makeText(this, "Back Worked", Toast.LENGTH_SHORT).show();
             Log.d(TAG, "onActivityResult");
         }
