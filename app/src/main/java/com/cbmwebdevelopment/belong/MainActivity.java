@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity
 
         // Load the webview page
         WebView mWebView = (WebView) findViewById(R.id.webView);
-        mWebView.loadUrl("www.elon.edu/");
+        mWebView.loadUrl("www.utterfare.com");
     }
 
     @Override

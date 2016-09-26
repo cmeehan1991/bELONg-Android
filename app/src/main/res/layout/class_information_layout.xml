@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -14,7 +14,7 @@
             style="@style/ClassHeader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Course Name" />
+            android:text="Course Name"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -22,67 +22,62 @@
             android:orientation="vertical"
             android:padding="10dp">
 
-        <GridLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:columnCount="2">
-
-            <TextView
-                style="@style/Label"
-                android:layout_width="wrap_content"
+            <GridLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Course Description:"
-                android:layout_weight="1"/>
+                android:columnCount="2">
 
-            <TextView
-                android:id="@+id/courseDescription"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="This is the brief description of the course. Will typically resemble what students see when registering for courses."
-                android:layout_gravity="fill_horizontal"/>
+                <TextView
+                    style="@style/Label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Course Description:"/>
 
-            <TextView
-                style="@style/Label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Course Schedule:" />
+                <TextView
+                    android:id="@+id/courseDescription"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="fill_horizontal"
+                    android:text="This is the brief description of the course. Will typically resemble what students see when registering for courses."/>
 
-            <TextView
-                android:id="@+id/classSchedule"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="MWF 8:00 - 9:15" />
+                <TextView
+                    style="@style/Label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Course Schedule:"/>
 
-            <TextView
-                style="@style/Label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Course Status:" />
+                <TextView
+                    android:id="@+id/classSchedule"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MWF 8:00 - 9:15"/>
 
-            <TextView
-                android:id="@+id/classStatus"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="On Time" />
+                <TextView
+                    style="@style/Label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Course Status:"/>
 
-            <TextView
-                style="@style/Label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Instructor:" />
+                <TextView
+                    android:id="@+id/classStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="On Time"/>
 
-            <TextView
-                android:id="@+id/classInstructor"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Professor Messor" />
-        </GridLayout>
+                <TextView
+                    style="@style/Label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Instructor:"/>
+
+                <TextView
+                    android:id="@+id/classInstructor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Professor Messor"/>
+            </GridLayout>
         </LinearLayout>
-
-        <ListView
-            android:id="@+id/homeworkList"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"></ListView>
 
         <TextView
             android:layout_width="match_parent"
@@ -92,8 +87,30 @@
             android:color="@color/colorPrimaryDark"
             android:gravity="center_horizontal"
             android:text="Homework"
-            android:textSize="24dp" />
+            android:textSize="24dp"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ListView
+                android:id="@+id/homeworkList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></ListView>
+
+
+            <android.support.design.widget.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:src="@mipmap/add_icon"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:onClick="addHomework"/>
+        </RelativeLayout>
+
 
     </LinearLayout>
+
 
 </RelativeLayout>
